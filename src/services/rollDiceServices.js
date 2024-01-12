@@ -7,19 +7,19 @@ function rollDiceServ(diceString) {
             return
         }
 
-        const result = d20.verboseRoll(diceString);
-        console.log("Iniciando rollDiceServ");
+        const result = d20.verboseRoll(diceString, true);
+        console.log("Starting rollDiceServ");
 
         if(diceString.includes('+')) {
-            console.log('includes')
-            const numToMult = result.pop();
-            console.log(numToMult)
-            console.log(result)
-            console.log(result.length)
+            const numToAdd = result.pop();
+            console.log(numToAdd);
+            console.log(result.length);
+            console.log(result);
             for(let i = 0; i < result.length; i++){
-                console.log(result)
+                result[i] = result[i] + numToAdd;
             }
-            return
+            console.log(result);
+            return result;
         }
 
         console.log("Resultado da rolagem:", result);

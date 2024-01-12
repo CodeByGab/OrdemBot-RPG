@@ -37,11 +37,13 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (message) => {
-    // if (message.author.bot) return;
-    // const text = message.content.toLowerCase();
-    // if (text.includes("test")) {
-    //     message.reply("Tested!");
-    // }
+
+    if (message.author.bot) return;
+    const text = message.content.toLowerCase();
+    if (text.includes("test")) {
+        message.reply("Tested!");
+    }
+
     if(!message.content.startsWith(prefix) || message.author.bot) return
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -50,9 +52,10 @@ client.on("messageCreate", (message) => {
     // Verifica se o comando é "r"
     if (prefixCommand === "r") {
         // Pega o que foi escrito após o comando
-        const argument = args.join(" ");
-        const test = rollDiceServ(argument);
+        const diceString = args.join(" ");
+        const rolles = rollDiceServ(diceString);
     }
+    
 });
 
 client.on("interactionCreate", async (interaction) => {
