@@ -48,36 +48,23 @@ client.on("messageCreate", (message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const prefixCommand = args.shift().toLowerCase();
-
-    // Verifica se o comando é "r"
+    console.log(prefixCommand)
+    const diceString = args.join(" ");
+    console.log(diceString)
     if (prefixCommand === "r") {
-        // Pega o que foi escrito após o comando
-        const diceString = args.join(" ");
-        const rolles = rollDiceServ(diceString);
+        rollDiceServ(diceString, message);
     }
     
 });
 
 client.on("interactionCreate", async (interaction) => {
-    if(!interaction.isChatInputCommand ||  interaction.author.bot) return;
+    if(!interaction.isChatInputCommand) return;
     console.log(interaction.content)
-    const { commandName, options } = interaction;
+    const { commandName, options, content } = interaction;
 
     if (commandName === "r") {
-        // Obtém o restante da mensagem após o comando
-        const diceString = interaction.options.getString("dados") || interaction.content.slice(".r".length).trim();
+        const diceString = options.getString("dados");
 
-        // Verifica se o valor do dado existe
-        if (diceString) {
-            // Chama a função para processar a rolagem do dado
-            const rollResult = rollDiceServ(diceString);
-
-            // Responde com o resultado
-            interaction.reply(`Você rolou um dado e obteve: **${rollResult.join(', ')}**`);
-        } else {
-            // Se não for fornecido um valor válido, responde com uma mensagem de erro
-            interaction.reply("Por favor, forneça um valor para o dado. Exemplo: `.r 4d20+5`");
-        }
     }
     
 });

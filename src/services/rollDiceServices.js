@@ -1,39 +1,48 @@
 import d20 from 'd20';
+import { DefaultUserAgent } from 'discord.js';
 
-function rollDiceServ(diceString) {
+function rollDiceServ(diceString, mess) {
     try {
         if(!isDiceStringValid(diceString)) {
-            console.log('falou merda paisão');
-            return
-        }
+            wrongWarning('Wrong type of input, try something like "4d20+5"', mess);
+        } else {
+            const result = d20.verboseRoll(diceString);
 
-        const result = d20.verboseRoll(diceString, true);
-        console.log("Starting rollDiceServ");
-
-        if(diceString.includes('+')) {
-            const numToAdd = result.pop();
-            console.log(numToAdd);
-            console.log(result.length);
-            console.log(result);
-            for(let i = 0; i < result.length; i++){
-                result[i] = result[i] + numToAdd;
+            if(diceString.includes('+')) {
+                const numToAdd = result.pop();
+                const newResult = result.map(num = num + numToAdd);
+                defaultResponse(newResult, mess, true);
             }
-            console.log(result);
-            return result;
-        }
 
-        console.log("Resultado da rolagem:", result);
-        return result;
+            defaultResponse(result, mess, false);
+            return;
+        }
 
     } catch (error) {
-        console.error("Erro em rollDiceServ:", error);
+        console.error("Error in rollDiceServ:", error);
         throw error;
     }
 }
 
 function isDiceStringValid(diceString){
     const isValid = /^[0-9d+]*$/.test(diceString);
-    return isValid
+    return isValid;
+}
+
+function defaultResponse(diceValue, mess){
+    console.log(diceValue)
+    const rollText = `You rolled ${diceValue.join(', ')}`;
+    const maxRollText = `Max value: ${Math.max(...diceValue)}`;
+    const sumValue = diceValue.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const totalText = `Total: ${sumValue}`
+
+    const replyText = diceValue.length > 1 ? `${rollText}\n${maxRollText}\n${totalText}` : rollText;
+
+    mess.reply(replyText);
+}
+
+function wrongWarning(string, mess){
+    mess.reply(string);
 }
 
 export default rollDiceServ;
