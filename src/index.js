@@ -10,6 +10,12 @@ import { REST } from "discord.js";
 
 import rollDiceCommand from "./commands/rollDiceCommand.js";
 import rollDiceServ from "./services/rollDiceServices.js";
+import showSheetCommand from "./commands/showSheetCommand.js";
+import showSheetServ from "./services/showSheetServices.js";
+
+import fighterSheet from "./characterSheetTemp/fighterSheet.json" assert { type: "json" };
+import expertSheet from "./characterSheetTemp/expertSheet.json" assert { type: "json"};
+import ocultistSheet from "./characterSheetTemp/ocultistSheet.json" assert { type: "json"};
 
 config();
 
@@ -64,12 +70,19 @@ client.on("interactionCreate", async (interaction) => {
         const diceString = options.getString("dados");
         rollDiceServ(diceString, interaction);
     }
+
+    if (commandName === "sheet") {
+        const characterSheet = fighterSheet;
+
+        showSheetServ(characterSheet, interaction)
+    }
     
 });
 
 async function main() {
     const commands = [
-        rollDiceCommand
+        rollDiceCommand,
+        showSheetCommand
     ];
 
     try {

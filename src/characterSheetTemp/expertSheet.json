@@ -1,0 +1,27 @@
+{
+    "name": "Name Expert",
+    "img": "https://imgur.com/K70Nau0.png",
+    "color": 16711680,
+    "attributes": {
+      "Acrobacia": 5,
+      "Atletismo": 5,
+      "Fortitude": 10,
+      "Iniciativa": 10,
+      "Intimidação": 5,
+      "Luta": 5
+    },
+    "level": 25,
+    "hp": {
+      "atual": 70,
+      "max": 100
+    },
+    "mana": {
+      "atual": 70,
+      "max": 100
+    },
+    "sanity": {
+      "atual": 70,
+      "max": 100
+    },
+    "skills": "https://imgur.com/L7fKBgS.png"
+  }

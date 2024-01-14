@@ -1,0 +1,30 @@
+{
+    "name": "Combatente",
+    "img": "https://imgur.com/K70Nau0.png",
+    "color": 16711680,
+    "attributes": {
+      "Acrobacia": 5,
+      "Atletismo": 5,
+      "Fortitude": 10,
+      "Iniciativa": 10,
+      "Intimidação": 5,
+      "Luta": 5
+    },
+    "origin": "Atleta",
+    "class": "Combatente",
+    "level": 30,
+    "hp": {
+      "atual": 80,
+      "max": 100
+    },
+    "mana": {
+      "atual": 35,
+      "max": 40
+    },
+    "sanity": {
+      "atual": 10,
+      "max": 25
+    },
+    "skills": "https://imgur.com/L7fKBgS.png",
+    "mobility": "9m"
+  }
