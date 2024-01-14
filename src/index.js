@@ -34,6 +34,7 @@ client.on("ready", () => {
     console.log(`${client.user.displayName} has logged in`);
 
     client.user.setActivity("OrdemBot RPG", { type: ActivityType.Playing });
+    
 });
 
 client.on("messageCreate", (message) => {
@@ -48,9 +49,7 @@ client.on("messageCreate", (message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const prefixCommand = args.shift().toLowerCase();
-    console.log(prefixCommand)
     const diceString = args.join(" ");
-    console.log(diceString)
     if (prefixCommand === "r") {
         rollDiceServ(diceString, message);
     }
@@ -59,12 +58,11 @@ client.on("messageCreate", (message) => {
 
 client.on("interactionCreate", async (interaction) => {
     if(!interaction.isChatInputCommand) return;
-    console.log(interaction.content)
     const { commandName, options, content } = interaction;
 
     if (commandName === "r") {
         const diceString = options.getString("dados");
-
+        rollDiceServ(diceString, interaction);
     }
     
 });
