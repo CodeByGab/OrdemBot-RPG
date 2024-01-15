@@ -1,5 +1,5 @@
 {
-  "name": "Combatente",
+  "name": "Combatente Nome Grande",
   "img": "https://imgur.com/K70Nau0.png",
   "color": 16711680,
   "attributes": {
@@ -11,26 +11,30 @@
     "Luta": 5
   },
   "skills_text": {
-    "AGI": 2
+    "FOR": 1,
+    "AGI": 2,
+    "INT": 3,
+    "VIG": 4,
+    "PRE": 5
   },
   "origin": "Atleta",
-  "class": "Combatente",
+  "class": "Especialista",
   "level": 30,
   "hp": {
     "current": 80,
-    "max": 100
+    "max": 88
   },
-  "mana": {
-    "current": 35,
-    "max": 40
+  "pe": {
+    "current": 20,
+    "max": 27
   },
   "sanity": {
     "current": 10,
-    "max": 25
+    "max": 33
   },
   "mobility": "9m",
   "defesa": "",
-  "skills_img": "https://imgur.com/L7fKBgS.png",
+  "skills_img": "https://imgur.com/rgg1VnX.png",
   "inventory": {
     "weapons": {
       "lanca_de_shojin": {
