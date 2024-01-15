@@ -11,6 +11,7 @@ import { REST } from "discord.js";
 import rollDiceCommand from "./commands/rollDiceCommand.js";
 import rollDiceServ from "./services/rollDiceServices.js";
 import showSheetCommand from "./commands/showSheetCommand.js";
+import showSheetTextCommand from "./commands/showSheetTextCommand.js";
 import showSheetServ from "./services/showSheetServices.js";
 
 import fighterSheet from "./characterSheetTemp/fighterSheet.json" assert { type: "json" };
@@ -71,9 +72,14 @@ client.on("interactionCreate", async (interaction) => {
         rollDiceServ(diceString, interaction);
     }
 
+    const characterSheet = fighterSheet;
+
     if (commandName === "sheet") {
-        const characterSheet = fighterSheet;
-        showSheetServ(characterSheet, interaction)
+        showSheetServ(characterSheet, interaction, false);
+    }
+
+    if(commandName === "sheet-text") {
+        showSheetServ(characterSheet, interaction, true);
     }
     
 });
@@ -81,7 +87,8 @@ client.on("interactionCreate", async (interaction) => {
 async function main() {
     const commands = [
         rollDiceCommand,
-        showSheetCommand
+        showSheetCommand,
+        showSheetTextCommand
     ];
 
     try {

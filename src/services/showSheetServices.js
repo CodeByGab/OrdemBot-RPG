@@ -1,7 +1,7 @@
 import showSheetEmbed from "../embedMessage/showSheetEmbed.js";
 
-function showSheetServ(character, mess) {
-    const characterSheetEmbed = showSheetEmbed(character);
+function showSheetServ(character, mess, isThistext) {
+    const characterSheetEmbed = showSheetEmbed(character, isThistext);
     mess.reply({
         embeds: [characterSheetEmbed]
     });
