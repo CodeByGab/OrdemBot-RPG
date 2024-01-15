@@ -1,30 +1,64 @@
 {
-    "name": "Combatente",
-    "img": "https://imgur.com/K70Nau0.png",
-    "color": 16711680,
-    "attributes": {
-      "Acrobacia": 5,
-      "Atletismo": 5,
-      "Fortitude": 10,
-      "Iniciativa": 10,
-      "Intimidação": 5,
-      "Luta": 5
+  "name": "Combatente",
+  "img": "https://imgur.com/K70Nau0.png",
+  "color": 16711680,
+  "attributes": {
+    "Acrobacia": 5,
+    "Atletismo": 5,
+    "Fortitude": 10,
+    "Iniciativa": 10,
+    "Intimidação": 5,
+    "Luta": 5
+  },
+  "skills_text": {
+    "AGI": 2
+  },
+  "origin": "Atleta",
+  "class": "Combatente",
+  "level": 30,
+  "hp": {
+    "current": 80,
+    "max": 100
+  },
+  "mana": {
+    "current": 35,
+    "max": 40
+  },
+  "sanity": {
+    "current": 10,
+    "max": 25
+  },
+  "mobility": "9m",
+  "defesa": "",
+  "skills_img": "https://imgur.com/L7fKBgS.png",
+  "inventory": {
+    "weapons": {
+      "lanca_de_shojin": {
+        "nome": "lança de shojin",
+        "alcance": "longo",
+        "dano": "4d12",
+        "categoria": "II",
+        "critico_dado": "19",
+        "critico_multi": "x3",
+        "peso": "2",
+        "descricao": "Reduz o dano causado por ataques e habilidades de Campeões em 10 + 15% de Dano de Ataque adicional (máximo 300).Quando estiver perto de pelo menos 3 Campeões inimigos, use um ataque básico para ganhar Coração de Dragão (90s de Tempo de Recarga)."
+      },
+      "cutelo": {
+        "nome": "cutelo",
+        "alcance": "melee",
+        "dano": "2d10+5",
+        "categoria": "I",
+        "critico_dado": "20",
+        "critico_multi": "2x",
+        "peso": "2",
+        "descricao": "Uma arma muito foda"
+      }
     },
-    "origin": "Atleta",
-    "class": "Combatente",
-    "level": 30,
-    "hp": {
-      "atual": 80,
-      "max": 100
-    },
-    "mana": {
-      "atual": 35,
-      "max": 40
-    },
-    "sanity": {
-      "atual": 10,
-      "max": 25
-    },
-    "skills": "https://imgur.com/L7fKBgS.png",
-    "mobility": "9m"
+    "defense": {
+      "kevlar": {
+        "def": 5,
+        "descricao": "dragao da pootaria"
+      }
+    }
   }
+}

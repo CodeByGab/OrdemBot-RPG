@@ -73,7 +73,6 @@ client.on("interactionCreate", async (interaction) => {
 
     if (commandName === "sheet") {
         const characterSheet = fighterSheet;
-
         showSheetServ(characterSheet, interaction)
     }
     
